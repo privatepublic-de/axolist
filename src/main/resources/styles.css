@@ -1,0 +1,386 @@
+body {
+	font-family: sans-serif;
+}
+
+h1 {
+	font-size: 1.5em;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+.intro a {
+	color: #009;
+	text-decoration: underline;
+}
+
+a.userref {
+	background: #eee;
+	color: black;
+	text-decoration: none;
+}
+
+.FACTORY a.factory,
+.COMMUNITY a.community {
+	color: #666;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+#list {
+	padding-left: 12em;
+}
+
+#jumplist {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0em;
+	width: 10em;
+	padding-left: 1em;
+	overflow: auto;
+	background: #eee;
+}
+@media screen and (max-width: 1024px) {
+	#list {
+		padding: 0;
+	}
+	#jumplist {
+		position: static;
+		width: auto;
+		padding: 0;
+	}
+	#jumplist li {
+		display: inline-block!important;
+		margin-right: .75em;
+	}
+}
+
+h2 {
+	display: block;
+	background: #ddd;
+	font-weight: bold;
+	font-size: 1em;
+	padding: .25em;
+	margin: .5em 0;
+}
+
+h2 a {
+	float: right;
+	font-weight: normal;
+}
+
+.axo h3 {
+	font-weight: bold;
+	background: #eee;
+	margin: 0;
+	font-size: 1em;
+}
+
+.axo h3 span {
+	float: right;
+	margin-top: 2px;
+	font-size: .75em;
+	padding: 0 4px;
+	background: #ccc;
+	color: #fff;
+	font-weight: normal;
+	cursor: default;
+	border-radius: 4px;
+}
+
+.axo h3 span:after {
+	content: "credits";
+}
+
+
+ul {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: block;
+	margin-top: .25em;
+}
+
+div.axo {
+	display: inline-block;
+	vertical-align: top;
+	min-width: 19em;
+	padding: 2px;
+	margin: .5em .5em .5em 0;
+	border: 2px solid #000;
+}
+
+.axo p {
+	margin: .5em 0;
+	font-style: italic;
+	color: #666;
+	max-width: 19em;
+}
+
+.axo:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+
+.io {
+	font-size: .8em;
+	background: #eee;
+	min-width: 100px;
+	float: right;
+	box-shadow: 0 0 .5em #000;
+	margin: .5em;
+}
+.io td {
+	vertical-align: top;
+	cursor: default;
+}
+
+
+.i div {
+	background: no-repeat left center;
+	padding: 0 0 0 14px;
+	margin: 2px 0;
+}
+
+.o div {
+	background: no-repeat right center;
+	text-align: right;
+	padding: 0 14px 0 0;
+	margin: 2px 0;
+}
+
+.i .rd { background-image: url(inlet-fracbuf.png); }
+.i .gr { background-image: url(inlet-int.png); }
+.i .bl { background-image: url(inlet-frac.png); }
+.i .ye { background-image: url(inlet-bool.png); }
+.i .pn { background-image: url(inlet-str.png); }
+
+.o .rd { background-image: url(outlet-fracbuf.png); }
+.o .gr { background-image: url(outlet-int.png); }
+.o .bl { background-image: url(outlet-frac.png); }
+.o .ye { background-image: url(outlet-bool.png); }
+.o .pn { background-image: url(outlet-str.png); }
+
+.p div {
+	background: no-repeat right center;
+	text-align: right;
+	margin: 2px 0;
+}
+
+.p .bl {
+	background-image: url(para-frac.png);
+	padding: 0 27px 0 0;
+	height: 25px;
+	line-height: 25px;
+}
+
+.p .ye {
+	background-image: url(para-bool.png);
+	padding: 0 15px 0 0;
+	height: 14px;
+	line-height: 14px;
+}
+.p .ye.bool32-mom {
+	background-image: url(para-bool-mom.png);
+	padding: 0 15px 0 0;
+	height: 13px;
+	line-height: 13px;
+}
+
+
+.p .gr {
+	background-image: url(para-int.png);
+	padding: 0 52px 0 0;
+	height: 16px;
+	line-height: 16px;
+}
+
+.p .gr.int32-hradio {
+	background-image: url(para-h-int.png);
+	padding: 0 35px 0 0;
+	height: 13px;
+	line-height: 13px;
+}
+.p .gr.int32-vradio {
+	background-image: url(para-v-int.png);
+	padding: 0 15px 0 0;
+	height: 33px;
+	line-height: 33px;
+}
+.p .int2x16 {
+	background-image: url(para-int2x16.png);
+	padding: 0 195px 0 0;
+	height: 14px;
+	line-height: 14px;
+}
+.p .bin32 {
+	background-image: url(para-bin32.png);
+	padding: 0 387px 0 0;
+	height: 14px;
+	line-height: 14px;
+}
+.p .bin16 {
+	background-image: url(para-bin16.png);
+	padding: 0 195px 0 0;
+	height: 14px;
+	line-height: 14px;
+}
+.p .bin12 {
+	background-image: url(para-bin12.png);
+	padding: 0 147px 0 0;
+	height: 14px;
+	line-height: 14px;
+}
+.p .gr.int32-mini {
+	background-image: url(para-int32mini.png);
+	padding: 0 12px 0 0;
+	height: 12px;
+	line-height: 12px;
+	width: 0;
+	overflow: hidden;
+	display: inline-block;
+	text-indent: -200px;
+}
+
+.p .bl.frac32-u-mapvsl,
+.p .bl.frac32-s-mapvsl {
+	background-image: url(para-fracumapvsl.png);
+	padding: 0 12px 0 0;
+	height: 128px;
+	width: 0;
+	overflow: hidden;
+	display: inline-block;
+	text-indent: -200px;
+}
+
+.a div {
+	background: url(attr-default.png) no-repeat left center;
+	min-width: 122px;
+	min-height: 16px;
+	line-height: 16px;
+	margin: 4px 0 0 0;
+	padding: 0 2px;
+}
+
+.a div.combo {
+	background-image: url(attr-combo.png);
+	min-width: 162px;
+	min-height: 14px;
+	line-height: 14px;
+}
+
+.a div.spinner {
+	background: url(attr-spinner.png) right center no-repeat;
+	padding-right: 52px;
+	height: 16px;
+	line-height: 16px;
+	min-width: auto;
+}
+
+.d {
+	text-align: right;
+}
+
+.d div {
+	margin: 4px 0 0 0;
+	
+	background: no-repeat right center;
+	text-align: right;
+}
+
+.d .frac32-vu {
+	background-image: url(disp-vu.png);
+	padding-right: 8px;
+	line-height: 16px;
+}
+
+.d .bool32 {
+	background-image: url(disp-bool.png);
+	padding-right: 10px;
+	line-height: 9px;
+}
+
+.d .frac32-s-chart,
+.d .frac32-u-chart,
+.d .int8array128-vbar,
+.d .uint8array128-vbar {
+	background-image: url(disp-chart.png);
+	padding-right: 68px;
+	line-height: 66px;
+}
+
+.d .int32-bar16 {
+	background-image: url(disp-bar16.png);
+	padding-right: 190px;
+	line-height: 9px;
+}
+
+.d .int32-bar32 {
+	background-image: url(disp-bar32.png);
+	padding-right: 382px;
+	line-height: 9px;
+}
+
+.d .frac4byte-vbar,
+.d .frac4ubyte-vbar {
+	background-image: url(disp-4byte-vbar.png);
+	padding-right: 5px;
+	line-height: 136px;
+	display: inline-block;
+	width: 0;
+	overflow: hidden;
+	text-indent: -300px;
+}
+.d .frac32-vbar,
+.d .frac32-vbar-db {
+	background-image: url(disp-vbar.png);
+	padding-right: 9px;
+	line-height: 128px;
+	display: inline-block;
+	width: 0;
+	overflow: hidden;
+	text-indent: -300px;
+}
+.d .frac32-s-dial,
+.d .frac32-u-dial {
+	background-image: url(disp-dial.png);
+	padding-right: 18px;
+	height: 18px;
+	line-height: 18px;
+}
+.d .note-label,
+.d .int32-label,
+.d .int32-hexlabel {
+	background-image: url(disp-intlabel.png);
+	padding-right: 37px;
+	line-height: 9px;
+}
+
+.d .int32-hexlabel {
+	background-image: url(disp-intlabel.png);
+	padding-right: 37px;
+	line-height: 9px;
+}
+
+.d .vscale {
+	background-image: url(disp-vscale.png);
+	padding-right: 22px;
+	line-height: 128px;
+	height: 128px;
+	display: inline-block;
+	width: 0;
+	overflow: hidden;
+	text-indent: -300px;
+}

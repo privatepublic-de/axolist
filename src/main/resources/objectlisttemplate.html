@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="res/styles.css">
+	<title>Axoloti Objects: ${typeTitle}</title>
+	<script type="text/javascript">
+		function a(element) { alert(element.title) }
+	</script>
+</head>
+<body class="${styleClass}">
+<div id="jumplist">
+	<ul>
+<#list catlist as cat>
+		<li><a href="#${cat.id}">${cat.name}</a></li>
+</#list>
+	</ul>
+</div>
+<div id="list">
+	<div class="intro">
+		<h1>Axoloti Objects: ${preferences.version} ${typeTitle} (${objectCount} objects)</h1>
+		<p> (Updated: ${preferences.date} by <a href="http://community.axoloti.com/users/cpwitz/activity" class="userref">@cpwitz</a> for the 
+			<a href="http://community.axoloti.com">Axoloti Community</a>)</p>
+		<p>	Select library: <a href="factory-objectlist.html" class="factory">Factory Library</a> | <a href="community-objectlist.html" class="community">Community Library (Contributions)</a> 
+		</p>			
+		<p>	Beware: <em>The object representation on this page is only an approximation and no 100% exact match to 
+			the real objects displayed within the Axoloti patcher software!</em></p>
+	</div>
+<#assign lastcat='NONE'>
+<#list list as axo>
+	<#if lastcat!=axo.escapedCategory>
+		<h2 id="${axo.escapedCategory}"><a href="#">to top ↑</a>${axo.category}</h2>
+	</#if>
+	<div class="axo">
+		<h3><span title="${axo.author} ${axo.license}" onclick="a(this)"></span>${axo.name}</h3>
+		<table class="io">
+			<#if axo.hasInOutOrParams==false>
+				<tr><td><em>(no controls)</em></td></tr>
+			</#if>
+			<tr>
+				<td class="i">
+					<#list axo.inlets as attr><div class="${attr.style}" title="${attr.description} (${attr.type})">${attr.name}</div></#list>
+				</td>
+				<td class="o">
+					<#list axo.outlets as attr><div class="${attr.style}" title="${attr.description} (${attr.type})">${attr.name}</div></#list>
+				</td>
+			</tr>
+			<tr>
+				<td class="a" colspan="2">
+					<#list axo.attribs as attr><div class="${attr.style}" title="${attr.description} (${attr.type})">${attr.name}</div></#list>
+				</td>
+			</tr>
+			<tr>
+				<td class="p" colspan="2">
+					<#list axo.params as attr><div class="${attr.style}" title="${attr.description} (${attr.type})">${attr.name}</div></#list>
+				</td>
+			</tr>
+			<tr>
+				<td class="d" colspan="2">
+					<#list axo.displays as attr><div class="${attr.style}" title="${attr.description} (${attr.type})">${attr.name}</div></#list>
+				</td>
+			</tr>
+		</table>
+		<p>${axo.description?replace('\n','<br/>')}</p>
+	</div>
+	<#assign lastcat=axo.escapedCategory>
+</#list>
+
+</div>
+</body>
+</html>
