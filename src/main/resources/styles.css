@@ -125,6 +125,7 @@ div.axo {
 	font-style: italic;
 	color: #666;
 	max-width: 19em;
+	word-wrap: break-word; 
 }
 
 .axo:after {
