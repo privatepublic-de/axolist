@@ -219,20 +219,7 @@ public class Axo {
 			description = node.getAttributes().getNamedItem("description") != null
 					? node.getAttributes().getNamedItem("description").getNodeValue() : "";
 			type = node.getNodeName();
-			if (type.contains("buffer")) {
-				style = "rd";
-			} else if (type.contains("frac")) {
-				style = "bl";
-			} else if (type.contains("bool")) {
-				style = "ye";
-			} else if (type.contains("int")) {
-				style = "gr";
-			} else if (type.contains("char")) {
-				style = "pn";
-			} else {
-				style = "";
-			}
-			style = style + " " + type.replaceAll("\\.", "-");
+			style = assembleStyleClass(type);
 		}
 		
 		public Attribute(String typeName, String name, Type at) {
@@ -240,25 +227,29 @@ public class Axo {
 			this.description = "";
 			type = typeName;
 			if (TYPE_MAP.get(typeName)!=null) {
-				style = TYPE_MAP.get(typeName);
+				style = TYPE_MAP.get(typeName)+" " + typeName.replaceAll("\\.", "-");
 			}
 			else {
-				if (type.contains("buffer")) {
-					style = "rd";
-				} else if (type.contains("frac")) {
-					style = "bl";
-				} else if (type.contains("bool")) {
-					style = "ye";
-				} else if (type.contains("int")) {
-					style = "gr";
-				} else if (type.contains("char")) {
-					style = "pn";
-				} else {
-					style = "";
-				}
-				
+				style = assembleStyleClass(typeName);
 			}
-			style += " " + typeName.replaceAll("\\.", "-");
+		}
+		
+		private String assembleStyleClass(String typeName) {
+			String result = "";
+			if (typeName.contains("buffer")) {
+				result = "rd";
+			} else if (typeName.contains("frac")) {
+				result = "bl";
+			} else if (typeName.contains("bool")) {
+				result = "ye";
+			} else if (typeName.contains("int")) {
+				result = "gr";
+			} else if (typeName.contains("char")) {
+				result = "pn";
+			} else {
+				result = "";
+			}
+			return result + " " + typeName.replaceAll("\\.", "-");
 		}
 	}
 
