@@ -84,6 +84,10 @@ public class Axo {
 	public String getLicense() {
 		return license;
 	}
+	
+	public String getId() {
+		return "o"+name.hashCode();
+	}
 
 	public List<Attribute> getInlets() {
 		return inlets;

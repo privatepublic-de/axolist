@@ -5,12 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="res/styles.css">
 	<title>Axoloti Objects: ${typeTitle}</title>
-	<script type="text/javascript">
-		function a(element) { alert(element.title) }
-	</script>
+	<script type="text/javascript" src="res/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="res/lunr.min.js"></script>
+	<script type="text/javascript" src="res/list.js"></script>
 </head>
 <body class="${styleClass}">
 <div id="jumplist">
+	<input type="text" id="s" placeholder="type text to search"/>
+	<ul id="results"></ul>
 	<ul>
 <#list catlist as cat>
 		<li><a href="#${cat.id}">${cat.name}</a></li>
@@ -32,7 +34,7 @@
 	<#if lastcat!=axo.escapedCategory>
 		<h2 id="${axo.escapedCategory}"><a href="#">to top ↑</a>${axo.category}</h2>
 	</#if>
-	<div class="axo">
+	<div class="axo" id="${axo.id}">
 		<h3><span title="${axo.author} ${axo.license}" onclick="a(this)"></span>${axo.name}</h3>
 		<table class="io">
 			<#if axo.hasInOutOrParams==false>
@@ -66,7 +68,7 @@
 	</div>
 	<#assign lastcat=axo.escapedCategory>
 </#list>
-
+	
 </div>
 </body>
 </html>

@@ -11,6 +11,14 @@ a {
 	text-decoration: none;
 }
 
+#results {
+	background: #eee;
+	font-size: .8em;
+	border: 1px solid #000;
+	border-radius: 4px;
+}
+
+
 .intro a {
 	color: #009;
 	text-decoration: underline;

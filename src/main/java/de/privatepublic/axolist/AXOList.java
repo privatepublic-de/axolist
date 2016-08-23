@@ -38,6 +38,7 @@ public class AXOList {
 	public static final String HTML_RESOURCE_INPUT_PATH = "/res.zip";
 	public static final String HTML_RESOURCE_OUTPUT_PATH = "res/";
 	public static final String HTML_RESOURCE_STYLE_SHEET_NAME = "styles.css";
+	public static final String HTML_RESOURCE_SCRIPT_NAME = "list.js";
 	public static final String OUTPUT_FILENAME_FACTORY = "factory-objectlist.html";
 	public static final String OUTPUT_FILENAME_COMMUNITY = "community-objectlist.html";
 	
@@ -176,20 +177,23 @@ public class AXOList {
 			ZipEntry ze = zis.getNextEntry();
 			while(ze!=null){
 				String fileName = ze.getName();
-				File newFile = new File(targetPath + fileName);
-				new File(newFile.getParent()).mkdirs();
-				FileOutputStream fos = new FileOutputStream(newFile);
-				int len;
-				while ((len = zis.read(buffer)) > 0) {
-					fos.write(buffer, 0, len);
-				}
+				if (!fileName.startsWith(".") && !fileName.startsWith("__")) {
+					File newFile = new File(targetPath + fileName);
+					new File(newFile.getParent()).mkdirs();
+					FileOutputStream fos = new FileOutputStream(newFile);
+					int len;
+					while ((len = zis.read(buffer)) > 0) {
+						fos.write(buffer, 0, len);
+					}
 
-				fos.close();
+					fos.close();
+				}
 				ze = zis.getNextEntry();
 			}
 			zis.closeEntry();
 			zis.close();
 			FileUtils.copyInputStreamToFile(AXOList.class.getResourceAsStream("/"+HTML_RESOURCE_STYLE_SHEET_NAME), new File(targetPath+HTML_RESOURCE_STYLE_SHEET_NAME));
+			FileUtils.copyInputStreamToFile(AXOList.class.getResourceAsStream("/"+HTML_RESOURCE_SCRIPT_NAME), new File(targetPath+HTML_RESOURCE_SCRIPT_NAME));
 			
 		} catch (IOException e) {
 			SimpleLog.error("Error:", e);
