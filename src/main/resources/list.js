@@ -3,6 +3,7 @@ function a(element) { alert(element.title) }
 $(function() {
 	var ftsindex = lunr(function () {
 		this.field('title', {boost: 10});
+		this.field('category', {boost: 8});
 		this.field('description');
 		this.ref('id');
 	});
@@ -13,21 +14,34 @@ $(function() {
 		var doc = {
 			id: ref,
 			title: axo.find('h3').text(),
-			description: axo.find('p').text()
+			description: axo.find('p').text(),
+			category: axo.prevAll("h2").first().text()
 		};
+		console.log(doc);
 		store[ref] = doc;
 		ftsindex.add(doc);
 	});
 	$('#s').on("keyup", function() {
 		var term = $('#s').val();
 		$('#results').empty();
+		$('#results').show();
+		$('#clears').show();
 		console.log(term);
 		var list = ftsindex.search(term);
 		console.log(list.length,"results");
 		$.each(list, function() {
 			var result = store[this.ref];
-			console.log(this.ref, result);
-			$('#results').append("<li><a href=\"#"+result.id+"\">"+result.title+"</a></li>");
+			$('#results').append("<li><a href=\"#"+result.id+"\">"+result.category+"/"+result.title+"</a></li>");
 		});
+		if (list.length==0) {
+			$('#results').append("<li><em>(nothing found)</em></li>");
+		}
+	});
+	$('#clears').click(function() {
+		$('#s').val("");
+		$('#results').empty();
+		$('#results').hide();
+		$('#clears').hide();
+		return false;
 	});
 });

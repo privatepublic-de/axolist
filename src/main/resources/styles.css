@@ -11,11 +11,32 @@ a {
 	text-decoration: none;
 }
 
+a#clears {
+	position: relative;
+	left: -1em;
+	display: none;
+}
+a#clears:after {
+	content: "x";
+}
+
 #results {
-	background: #eee;
+	background: #fff;
 	font-size: .8em;
-	border: 1px solid #000;
+	border: 1px solid #666;
 	border-radius: 4px;
+	margin-right: 1em;
+	display: none;
+}
+
+#results li {
+	padding: .25em .5em;
+	margin: .25em 0;
+	border-bottom: 1px solid #ccc;
+}
+
+#results li:last-child {
+	border-bottom: none;
 }
 
 
@@ -46,6 +67,7 @@ a:hover {
 
 #jumplist {
 	position: fixed;
+	padding-top: 1em;
 	top: 0;
 	bottom: 0;
 	left: 0em;
@@ -54,6 +76,11 @@ a:hover {
 	overflow: auto;
 	background: #eee;
 }
+
+#jumplist ul {
+	margin-top: .5em;
+}
+
 @media screen and (max-width: 1024px) {
 	#list {
 		padding: 0;
@@ -104,6 +131,10 @@ h2 a {
 
 .axo h3 span:after {
 	content: "credits";
+}
+
+h2 a:after {
+	content: "to top ↑";
 }
 
 

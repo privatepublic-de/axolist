@@ -11,7 +11,7 @@
 </head>
 <body class="${styleClass}">
 <div id="jumplist">
-	<input type="text" id="s" placeholder="type text to search"/>
+	<input type="text" id="s" placeholder="type text to search"/><a href="#" id="clears"></a>
 	<ul id="results"></ul>
 	<ul>
 <#list catlist as cat>
@@ -32,7 +32,7 @@
 <#assign lastcat='NONE'>
 <#list list as axo>
 	<#if lastcat!=axo.escapedCategory>
-		<h2 id="${axo.escapedCategory}"><a href="#">to top ↑</a>${axo.category}</h2>
+		<h2 id="${axo.escapedCategory}"><a href="#"></a>${axo.category}</h2>
 	</#if>
 	<div class="axo" id="${axo.id}">
 		<h3><span title="${axo.author} ${axo.license}" onclick="a(this)"></span>${axo.name}</h3>
