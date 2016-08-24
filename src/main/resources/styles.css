@@ -32,6 +32,7 @@ a#clears:after {
 #results li {
 	padding: .25em .5em;
 	margin: .25em 0;
+	word-wrap: break-word;
 	border-bottom: 1px solid #ccc;
 }
 
