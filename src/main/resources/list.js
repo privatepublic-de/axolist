@@ -44,4 +44,7 @@ $(function() {
 		$('#clears').hide();
 		return false;
 	});
+	window.onhashchange = function() { 
+		$(window.location.hash).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+	}
 });
