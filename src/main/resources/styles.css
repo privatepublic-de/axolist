@@ -11,6 +11,10 @@ a {
 	text-decoration: none;
 }
 
+#s {
+	width: 9em;	
+}
+
 a#clears {
 	position: relative;
 	left: -1em;
