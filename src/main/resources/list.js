@@ -1,6 +1,5 @@
-function a(element) { alert(element.title) }
-
 $(function() {
+	$("h3 span").click(function () { alert(this.title) });
 	var ftsindex = lunr(function () {
 		this.field('title', {boost: 10});
 		this.field('category', {boost: 8});
@@ -17,7 +16,6 @@ $(function() {
 			description: axo.find('p').text(),
 			category: axo.prevAll("h2").first().text()
 		};
-		console.log(doc);
 		store[ref] = doc;
 		ftsindex.add(doc);
 	});
