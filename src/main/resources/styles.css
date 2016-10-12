@@ -99,6 +99,21 @@ a:hover {
 		display: inline-block!important;
 		margin-right: .75em;
 	}
+	#jumplist input {
+	    font-size: 1.5em;
+	    width: 90%;
+	}
+	#results {
+	    font-size: 1em;
+	}
+	#results li {
+	    border: none;
+    }
+    
+    #jumplist li:before {
+	    content: "• ";
+    }
+
 }
 
 h2 {
