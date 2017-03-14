@@ -42,10 +42,6 @@ public class Axo {
 		attribs = new ArrayList<Attribute>();
 		params = new ArrayList<Attribute>();
 		
-		if ("shaped-triangle".equals(objName)) {
-			SimpleLog.info(categoryName, objName);
-		}
-		
 		NodeList nodelist = doc.getElementsByTagName("obj");
 		if (nodelist!=null && nodelist.getLength()>0) {
 			for (int i=0;i<nodelist.getLength();i++) {
