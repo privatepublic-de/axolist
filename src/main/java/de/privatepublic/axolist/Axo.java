@@ -42,6 +42,10 @@ public class Axo {
 		attribs = new ArrayList<Attribute>();
 		params = new ArrayList<Attribute>();
 		
+		if ("shaped-triangle".equals(objName)) {
+			SimpleLog.info(categoryName, objName);
+		}
+		
 		NodeList nodelist = doc.getElementsByTagName("obj");
 		if (nodelist!=null && nodelist.getLength()>0) {
 			for (int i=0;i<nodelist.getLength();i++) {
@@ -63,6 +67,26 @@ public class Axo {
 						Node child = paramlist.item(c);
 						if (child.hasAttributes() && child.getAttributes().getNamedItem("onParent")!=null && "true".equals(child.getAttributes().getNamedItem("onParent").getNodeValue())) {
 							params.add(new Attribute(child.getNodeName(), name, Attribute.Type.PARAM));
+						}
+					}
+				}
+			}
+		}
+		nodelist = doc.getElementsByTagName("patchobj");
+		if (nodelist!=null && nodelist.getLength()>0) {
+			for (int i=0;i<nodelist.getLength();i++) {
+				Node objectNode = nodelist.item(i);
+				NodeList paramcontainer = ((Element)objectNode).getElementsByTagName("params");
+				if (paramcontainer!=null && paramcontainer.getLength()>0) {
+					Node paramNode = paramcontainer.item(0);
+					NodeList paramlist = paramNode.getChildNodes();
+					for (int c=0;c<paramlist.getLength();c++) {
+						Node child = paramlist.item(c);
+						if (child.getAttributes()!=null && child.getAttributes().getNamedItem("name")!=null) {
+							String name = child.getAttributes().getNamedItem("name").getNodeValue();
+							if (child.hasAttributes() && child.getAttributes().getNamedItem("onParent")!=null && "true".equals(child.getAttributes().getNamedItem("onParent").getNodeValue())) {
+								params.add(new Attribute(child.getNodeName(), name, Attribute.Type.PARAM));
+							}
 						}
 					}
 				}
