@@ -3,6 +3,8 @@ package de.privatepublic.axolist;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -39,6 +41,21 @@ public class RenderHTML {
 				catList.add(entry);
 			}
 		}
+		
+		Collections.sort(catList, new Comparator<Map<String,String>>() {
+			@Override
+			public int compare(Map<String,String> o1, Map<String,String> o2) {
+	            return o1.get("name").toLowerCase().compareTo(o2.get("name").toLowerCase());
+			}
+		});
+		
+		Collections.sort(list, new Comparator<Axo>() {
+			@Override
+			public int compare(Axo o1, Axo o2) {
+	            return o1.getEscapedCategory().toLowerCase().compareTo(o2.getEscapedCategory().toLowerCase());
+			}
+		});
+		
 
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.put("catlist", catList);
