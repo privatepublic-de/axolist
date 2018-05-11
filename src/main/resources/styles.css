@@ -153,11 +153,6 @@ h2 a {
 	content: "credits";
 }
 
-h2 a:after {
-	content: "to top ↑";
-}
-
-
 ul {
 	display: block;
 	list-style: none;
@@ -443,4 +438,14 @@ div.axo {
 	width: 0;
 	overflow: hidden;
 	text-indent: -300px;
+}
+
+#toplink {
+	position: fixed;
+	padding: 5px 15px;
+	background: #99c;
+	bottom: 10px;
+	right: 24px;
+	font-weight: bold;
+	color: #fff;
 }
